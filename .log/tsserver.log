@@ -1,0 +1,49 @@
+Info 0    [14:41:57.590] Starting TS Server
+Info 1    [14:41:57.591] Version: 4.1.3
+Info 2    [14:41:57.591] Arguments: /opt/homebrew/Cellar/node/16.9.1/bin/node /usr/local/bin/tsserver --logFile /Users/thecsw/gits/katya-web/.log/tsserver.log --logVerbosity info --cancellationPipeName /private/var/folders/7d/4s6h974n48l1l3v09q2fz9mc0000gn/T/7b5d1911fb16715a6e45213fbde7ab91/tscancellation*
+Info 3    [14:41:57.591] Platform: darwin NodeVersion: 16 CaseSensitive: false
+Info 4    [14:41:57.591] ServerMode: undefined syntaxOnly: false hasUnknownServerMode: undefined
+Info 5    [14:41:57.708] Search path: /Users/thecsw/gits/katya-web/src
+Info 6    [14:41:57.709] For info: /Users/thecsw/gits/katya-web/src/main.js :: No config files found.
+Info 7    [14:41:57.711] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 8    [14:41:58.261] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 1 structureChanged: true Elapsed: 550.4538329839706ms
+Info 9    [14:41:58.262] Project '/dev/null/inferredProject1*' (Inferred)
+Info 10   [14:41:58.262] 	Files (96)
+
+Info 11   [14:41:58.262] -----------------------------------------------
+Info 12   [14:41:58.640] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 13   [14:41:58.644] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 2 structureChanged: false Elapsed: 3.121042013168335ms
+Info 14   [14:42:00.888] Before ensureProjectForOpenFiles:
+Info 15   [14:42:00.889] After ensureProjectForOpenFiles:
+Info 16   [14:42:00.889] got projects updated in background, updating diagnostics for /Users/thecsw/gits/katya-web/src/main.js
+Info 17   [14:42:01.858] DirectoryWatcher:: Triggered with /Users/thecsw/gits/katya-web/src/.#main.js :: WatchInfo: /Users/thecsw/gits/katya-web/src 0 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 18   [14:42:01.859] Elapsed:: 0.21891599893569946ms DirectoryWatcher:: Triggered with /Users/thecsw/gits/katya-web/src/.#main.js :: WatchInfo: /Users/thecsw/gits/katya-web/src 0 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 19   [14:42:02.517] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 20   [14:42:02.535] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 3 structureChanged: false Elapsed: 17.61020800471306ms
+Info 21   [14:42:02.535] Different program with same set of files:: structureIsReused:: 2
+Info 22   [14:42:03.312] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 23   [14:42:03.321] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 4 structureChanged: false Elapsed: 8.616625010967255ms
+Info 24   [14:42:03.321] Different program with same set of files:: structureIsReused:: 2
+Info 25   [14:42:03.370] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 26   [14:42:03.377] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 5 structureChanged: false Elapsed: 6.629625022411346ms
+Info 27   [14:42:03.377] Different program with same set of files:: structureIsReused:: 2
+Info 28   [14:42:03.492] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 29   [14:42:03.499] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 6 structureChanged: false Elapsed: 6.317416995763779ms
+Info 30   [14:42:03.499] Different program with same set of files:: structureIsReused:: 2
+Info 31   [14:42:03.644] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 32   [14:42:03.652] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 7 structureChanged: false Elapsed: 7.954333990812302ms
+Info 33   [14:42:03.652] Different program with same set of files:: structureIsReused:: 2
+Info 34   [14:42:03.710] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 35   [14:42:03.716] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 8 structureChanged: false Elapsed: 5.042707979679108ms
+Info 36   [14:42:03.716] Different program with same set of files:: structureIsReused:: 2
+Info 37   [14:42:04.222] DirectoryWatcher:: Triggered with /Users/thecsw/gits/katya-web/src/.saves :: WatchInfo: /Users/thecsw/gits/katya-web/src 0 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 38   [14:42:04.222] Elapsed:: 0.09937497973442078ms DirectoryWatcher:: Triggered with /Users/thecsw/gits/katya-web/src/.saves :: WatchInfo: /Users/thecsw/gits/katya-web/src 0 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 39   [14:42:04.223] DirectoryWatcher:: Triggered with /Users/thecsw/gits/katya-web/src/main.js :: WatchInfo: /Users/thecsw/gits/katya-web/src 0 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 40   [14:42:04.223] Elapsed:: 0.010958999395370483ms DirectoryWatcher:: Triggered with /Users/thecsw/gits/katya-web/src/main.js :: WatchInfo: /Users/thecsw/gits/katya-web/src 0 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 41   [14:42:04.223] DirectoryWatcher:: Triggered with /Users/thecsw/gits/katya-web/src/.#main.js :: WatchInfo: /Users/thecsw/gits/katya-web/src 0 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 42   [14:42:04.223] Elapsed:: 0.010666996240615845ms DirectoryWatcher:: Triggered with /Users/thecsw/gits/katya-web/src/.#main.js :: WatchInfo: /Users/thecsw/gits/katya-web/src 0 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 43   [14:42:04.223] DirectoryWatcher:: Triggered with /Users/thecsw/gits/katya-web/src/main.js :: WatchInfo: /Users/thecsw/gits/katya-web/src 0 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 44   [14:42:04.223] Elapsed:: 0.007833003997802734ms DirectoryWatcher:: Triggered with /Users/thecsw/gits/katya-web/src/main.js :: WatchInfo: /Users/thecsw/gits/katya-web/src 0 undefined Project: /dev/null/inferredProject1* WatchType: Failed Lookup Locations
+Info 45   [14:42:04.418] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 46   [14:42:04.431] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 9 structureChanged: false Elapsed: 12.864167004823685ms
+Info 47   [14:42:04.431] Different program with same set of files:: structureIsReused:: 2
