@@ -31,7 +31,9 @@ window.onload = () => {
                 ).then((data) => {
                         // auth succeeded
                         if (data[0] === 200) {
-                                username = atob(basicAuthToken).split(":")[0];
+                                username = atob(basicAuthToken)
+                                        .split("Basic ")[1]
+                                        .split(":")[0];
                                 dashboard.style.display = "block";
                                 welcome.value.innerHTML = `Welcome back, <b>${username}</b>`;
                                 login.style.display = "none";
@@ -115,8 +117,8 @@ window.onload = () => {
                 makePost(
                         (path = url + "/allocate"),
                         (data = {
-                            link: sourceAddInput.value,
-                            only_subpaths: true,
+                                link: sourceAddInput.value,
+                                only_subpaths: true,
                         }),
                         (auth = basicAuthToken)
                 ).then((data) => {
