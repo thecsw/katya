@@ -11,6 +11,7 @@ window.onload = () => {
         const login = document.querySelector("#login");
         const report = document.querySelector("#report");
         const dashboard = document.querySelector("#dashboard");
+        const welcome = document.querySelector("#welcome");
         report.style.display = "none";
         // cookie helpers
         const getCookie = (what) => {
@@ -30,7 +31,9 @@ window.onload = () => {
                 ).then((data) => {
                         // auth succeeded
                         if (data[0] === 200) {
+                                username = atob(basicAuthToken).split(":")[0];
                                 dashboard.style.display = "block";
+                                welcome.value.innerHTML = `Welcome back, <b>${username}</b>`;
                                 login.style.display = "none";
                         }
                 });
@@ -147,21 +150,20 @@ window.onload = () => {
         });
 
         find.addEventListener("click", (_e) => {
-                sourceTrigger.addEventListener("click", (_e) => {
-                        makeGet(
-                                (path = url + "/find"),
-                                (data = {
-                                        query: findInput.value,
-                                        csv: 1,
-                                }),
-                                (auth = basicAuthToken)
-                        ).then((data) => {
-                                // auth succeeded
-                                if (data[0] === 200) {
-                                        reportRequest("Found!", "isa_success");
-                                        return;
-                                }
-                        });
+                makeGet(
+                        (path =
+                                url +
+                                "/find?query=" +
+                                findInput.value +
+                                "&csv=1"),
+                        (data = {}),
+                        (auth = basicAuthToken)
+                ).then((data) => {
+                        // auth succeeded
+                        if (data[0] === 200) {
+                                reportRequest("Found!", "isa_success");
+                                return;
+                        }
                 });
         });
 };
