@@ -106,7 +106,6 @@ window.onload = () => {
                                         "Added the source!",
                                         "isa_success"
                                 );
-                                disable_form();
                                 return;
                         }
                 });
@@ -123,7 +122,6 @@ window.onload = () => {
                                         "Allocated a crawler",
                                         "isa_success"
                                 );
-                                disable_form();
                                 return;
                         }
                 });
@@ -143,7 +141,6 @@ window.onload = () => {
                                         "Triggered a crawl!",
                                         "isa_success"
                                 );
-                                disable_form();
                                 return;
                         }
                 });
