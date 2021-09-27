@@ -10,6 +10,7 @@ window.onload = () => {
         const find = document.querySelector("#find");
         const login = document.querySelector("#login");
         const report = document.querySelector("#report");
+        const dashboard = document.querySelector("#dashboard");
         report.style.display = "none";
         // cookie helpers
         const getCookie = (what) => {
@@ -101,10 +102,7 @@ window.onload = () => {
                 ).then((data) => {
                         // auth succeeded
                         if (data[0] === 200) {
-                                show_message(
-                                        "success",
-                                        `Added the source`
-                                );
+                                show_message("success", `Added the source`);
                                 disable_form();
                                 return;
                         }
@@ -131,26 +129,26 @@ window.onload = () => {
                 });
         });
 
-    find.addEventListener("click", (_e) => {
-        sourceTrigger.addEventListener("click", (_e) => {
-                makePost(
-                        (path = url + "/find"),
-                        (data = {
-                            query = findInput.value,
-                            csv = 1
-                        }),
-                        (auth = basicAuthToken)
-                ).then((data) => {
-                        // auth succeeded
-                        if (data[0] === 200) {
-                                show_message(
-                                        "success",
-                                        `Triggered data crawling`
-                                );
-                                disable_form();
-                                return;
-                        }
+        find.addEventListener("click", (_e) => {
+                sourceTrigger.addEventListener("click", (_e) => {
+                        makePost(
+                                (path = url + "/find"),
+                                (data = {
+                                        query: findInput.value,
+                                        csv: 1,
+                                }),
+                                (auth = basicAuthToken)
+                        ).then((data) => {
+                                // auth succeeded
+                                if (data[0] === 200) {
+                                        show_message(
+                                                "success",
+                                                `Triggered data crawling`
+                                        );
+                                        disable_form();
+                                        return;
+                                }
+                        });
                 });
         });
-    });
 };
