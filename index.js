@@ -110,11 +110,28 @@ window.onload = () => {
                                 return;
                         }
                 });
+                makePost(
+                        (path = url + "/allocate"),
+                        (data = {
+                                link: sourceAddInput.value,
+                        }),
+                        (auth = basicAuthToken)
+                ).then((data) => {
+                        // auth succeeded
+                        if (data[0] === 200) {
+                                reportRequest(
+                                        "Allocated a crawler",
+                                        "isa_success"
+                                );
+                                disable_form();
+                                return;
+                        }
+                });
         });
 
         sourceTrigger.addEventListener("click", (_e) => {
                 makePost(
-                        (path = url + "/source"),
+                        (path = url + "/trigger"),
                         (data = {
                                 link: sourceTriggerInput.value,
                         }),
