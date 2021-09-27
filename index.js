@@ -148,7 +148,7 @@ window.onload = () => {
 
         find.addEventListener("click", (_e) => {
                 sourceTrigger.addEventListener("click", (_e) => {
-                        makePost(
+                        makeGet(
                                 (path = url + "/find"),
                                 (data = {
                                         query: findInput.value,
