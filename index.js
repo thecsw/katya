@@ -31,9 +31,9 @@ window.onload = () => {
                 ).then((data) => {
                         // auth succeeded
                         if (data[0] === 200) {
-                                username = atob(basicAuthToken)
-                                        .split("Basic ")[1]
-                                        .split(":")[0];
+                                const username = atob(
+                                        basicAuthToken.split("Basic ")[1]
+                                ).split(":")[0];
                                 dashboard.style.display = "block";
                                 welcome.value.innerHTML = `Welcome back, <b>${username}</b>`;
                                 login.style.display = "none";
