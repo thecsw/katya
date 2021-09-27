@@ -115,7 +115,8 @@ window.onload = () => {
                 makePost(
                         (path = url + "/allocate"),
                         (data = {
-                                link: sourceAddInput.value,
+                            link: sourceAddInput.value,
+                            only_subpaths: true,
                         }),
                         (auth = basicAuthToken)
                 ).then((data) => {
