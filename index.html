@@ -4,17 +4,20 @@
     </head>
     <link rel="stylesheet" type="text/css" href="./index.css">
     <body>
-        <div>
-            <input type="text" id="source_add_input" placeholder="weblink">
-            <button class="button" id="source_add">Add source</button>
-        </div>
-        <div>
-            <input type="text" id="source_trigger_input" placeholder="weblink">
-            <button class="button" id="source_trigger">Crawl data</button>
-        </div>
-        <div>
-            <input type="text" id="find_input" placeholder="query">
-            <button class="button" id="find">Search stuff</button>
+        <div id="dashboard">
+            <div>
+                <input type="text" id="source_add_input" placeholder="weblink">
+                <button class="button" id="source_add">Add source</button>
+            </div>
+            <div>
+                <input type="text" id="source_trigger_input" placeholder="weblink">
+                <button class="button" id="source_trigger">Crawl data</button>
+            </div>
+            <div>
+                <input type="text" id="find_input" placeholder="query">
+                <button class="button" id="find">Search stuff</button>
+            </div>
+            <div class="isa_success" id="report"></div>
         </div>
         <div id="login" class="isa_error" style="display: block">
             Please login <a href="./login">here</a> first

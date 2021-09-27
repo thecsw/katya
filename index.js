@@ -9,6 +9,7 @@ window.onload = () => {
         const findInput = document.querySelector("#find_input");
         const find = document.querySelector("#find");
         const login = document.querySelector("#login");
+        const report = document.querySelector("#report");
         report.style.display = "none";
         // cookie helpers
         const getCookie = (what) => {
@@ -97,7 +98,17 @@ window.onload = () => {
                                 link: sourceAddInput.value,
                         }),
                         (auth = basicAuthToken)
-                );
+                ).then((data) => {
+                        // auth succeeded
+                        if (data[0] === 200) {
+                                show_message(
+                                        "success",
+                                        `Added the source`
+                                );
+                                disable_form();
+                                return;
+                        }
+                });
         });
 
         sourceTrigger.addEventListener("click", (_e) => {
@@ -107,6 +118,39 @@ window.onload = () => {
                                 link: sourceTriggerInput.value,
                         }),
                         (auth = basicAuthToken)
-                );
+                ).then((data) => {
+                        // auth succeeded
+                        if (data[0] === 200) {
+                                show_message(
+                                        "success",
+                                        `Triggered data crawling`
+                                );
+                                disable_form();
+                                return;
+                        }
+                });
         });
+
+    find.addEventListener("click", (_e) => {
+        sourceTrigger.addEventListener("click", (_e) => {
+                makePost(
+                        (path = url + "/find"),
+                        (data = {
+                            query = findInput.value,
+                            csv = 1
+                        }),
+                        (auth = basicAuthToken)
+                ).then((data) => {
+                        // auth succeeded
+                        if (data[0] === 200) {
+                                show_message(
+                                        "success",
+                                        `Triggered data crawling`
+                                );
+                                disable_form();
+                                return;
+                        }
+                });
+        });
+    });
 };
