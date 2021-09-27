@@ -102,7 +102,10 @@ window.onload = () => {
                 ).then((data) => {
                         // auth succeeded
                         if (data[0] === 200) {
-                                show_message("success", `Added the source`);
+                                reportRequest(
+                                        "Added the source!",
+                                        "isa_success"
+                                );
                                 disable_form();
                                 return;
                         }
@@ -119,9 +122,9 @@ window.onload = () => {
                 ).then((data) => {
                         // auth succeeded
                         if (data[0] === 200) {
-                                show_message(
-                                        "success",
-                                        `Triggered data crawling`
+                                reportRequest(
+                                        "Triggered a crawl!",
+                                        "isa_success"
                                 );
                                 disable_form();
                                 return;
@@ -141,11 +144,7 @@ window.onload = () => {
                         ).then((data) => {
                                 // auth succeeded
                                 if (data[0] === 200) {
-                                        show_message(
-                                                "success",
-                                                `Triggered data crawling`
-                                        );
-                                        disable_form();
+                                        reportRequest("Found!", "isa_success");
                                         return;
                                 }
                         });
