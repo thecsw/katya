@@ -35,7 +35,7 @@ window.onload = () => {
                                         basicAuthToken.split("Basic ")[1]
                                 ).split(":")[0];
                                 dashboard.style.display = "block";
-                                welcome.value.innerHTML = `Welcome back, <b>${username}</b>`;
+                                welcome.innerHTML = `Welcome back, <b>${username}</b>`;
                                 login.style.display = "none";
                         }
                 });
