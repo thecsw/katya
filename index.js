@@ -164,6 +164,17 @@ window.onload = () => {
                         // auth succeeded
                         if (data[0] === 200) {
                                 console.log(data[1]);
+                                a = document.createElement("a");
+                                a.textContent = "download";
+                                a.download = "katya_result.csv";
+                                a.href =
+                                        "data:text/csv;charset=utf-8," +
+                                        escape(data[1]);
+                                document.body.appendChild(a);
+                                // window.open(
+                                //         "data:text/csv;charset=utf-8," +
+                                //                 escape(data[1])
+                                // );
                                 reportRequest("Found!", "isa_success");
                                 return;
                         }
