@@ -84,7 +84,7 @@ window.onload = () => {
                         redirect: "follow",
                         referrerPolicy: "no-referrer",
                 });
-                respBlob = await response.blob();
+                respBlob = await response.text();
                 return [response.status, respBlob];
         }
 
@@ -163,7 +163,7 @@ window.onload = () => {
                 ).then((data) => {
                         // auth succeeded
                         if (data[0] === 200) {
-                                window.open(await data[1].text());
+                                console.log(data[1]);
                                 reportRequest("Found!", "isa_success");
                                 return;
                         }
