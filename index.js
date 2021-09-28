@@ -163,6 +163,7 @@ window.onload = () => {
                 ).then((data) => {
                         // auth succeeded
                         if (data[0] === 200) {
+                                window.open(data[1]);
                                 reportRequest("Found!", "isa_success");
                                 return;
                         }
