@@ -55,7 +55,7 @@ window.onload = () => {
                         credentials: "include",
                         headers: {
                                 "Content-Type": "application/json",
-                                Authorization: auth,
+                                Authorization: auth.toString(),
                                 Accept: "*/*",
                                 "Accept-Encoding": "gzip, deflate, br",
                                 Connection: "keep-alive",
@@ -76,7 +76,7 @@ window.onload = () => {
                         credentials: "include",
                         headers: {
                                 "Content-Type": "application/json",
-                                Authorization: auth,
+                                Authorization: auth.toString(),
                                 Accept: "*/*",
                                 "Accept-Encoding": "gzip, deflate, br",
                                 Connection: "keep-alive",
@@ -159,7 +159,6 @@ window.onload = () => {
                                 "/find?query=" +
                                 findInput.value +
                                 "&csv=1"),
-                        (data = {}),
                         (auth = basicAuthToken)
                 ).then((data) => {
                         // auth succeeded
