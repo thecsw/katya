@@ -84,8 +84,8 @@ window.onload = () => {
                         redirect: "follow",
                         referrerPolicy: "no-referrer",
                 });
-                json = await response.json();
-                return [response.status, json];
+                respBlob = await response.blob();
+                return [response.status, respBlob];
         }
 
         const reportRequest = (toShow, className) => {
