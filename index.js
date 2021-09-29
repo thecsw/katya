@@ -169,7 +169,7 @@ window.onload = () => {
                                 a.download = `katya-${findInput.value}.csv`;
                                 a.href =
                                         "data:text/csv;charset=utf-8,\uFEFF" +
-                                        escape(data[1]);
+                                        data[1];
                                 document.body.appendChild(a);
                                 // window.open(
                                 //         "data:text/csv;charset=utf-8," +
