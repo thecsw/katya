@@ -163,18 +163,32 @@ window.onload = () => {
                 ).then((data) => {
                         // auth succeeded
                         if (data[0] === 200) {
-                                console.log(data[1]);
-                                a = document.createElement("a");
-                                a.textContent = "download";
-                                a.download = `katya-${findInput.value}.csv`;
-                                a.href =
-                                        "data:text/csv;charset=utf-8,\uFEFF" +
-                                        data[1];
-                                document.body.appendChild(a);
+                                // console.log(data[1]);
+                                // a = document.createElement("a");
+                                // a.textContent = "download";
+                                // a.download = `katya-${findInput.value}.csv`;
+                                // a.href =
+                                //         "data:text/csv;charset=utf-8,\uFEFF" +
+                                // escape(data[1]);
+                                // document.body.appendChild(a);
                                 // window.open(
                                 //         "data:text/csv;charset=utf-8," +
                                 //                 escape(data[1])
                                 // );
+                                let csvContent = data[1];
+                                let encodedUri = encodeURI(csvContent);
+                                let link = document.createElement("a");
+                                link.setAttribute(
+                                        "href",
+                                        "data:text/csv;charset=utf-8,\uFEFF" +
+                                                encodedUri
+                                );
+                                link.setAttribute(
+                                        "download",
+                                        `katya-${findInput.value}.csv`
+                                );
+                                link.click();
+
                                 reportRequest("Found!", "isa_success");
                                 return;
                         }
