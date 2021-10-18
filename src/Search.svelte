@@ -64,10 +64,8 @@
 
     
     function submitSearch() {
-      part_type = search_api_options[search_type];
-      findKatya(search_value, part_type).then(value => {
-        results = value;
-      })
+      let part_type = search_api_options[search_type];
+      findKatya(search_value, part_type).then(value => { results = value })
     }
 
     
