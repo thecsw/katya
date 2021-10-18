@@ -1,4 +1,4 @@
-async function makePost(path = "", data = {}, auth = "") {
+function makePost(path = "", data = {}, auth = "") {
         const response = await fetch(path, {
                 method: "POST",
                 mode: "cors",
@@ -19,7 +19,7 @@ async function makePost(path = "", data = {}, auth = "") {
         return [response.status, json];
 }
 
-async function makeGet(path = "", auth = "") {
+function makeGet(path = "", auth = "") {
         const response = await fetch(path, {
                 method: "GET",
                 mode: "cors",
