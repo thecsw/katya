@@ -10,7 +10,7 @@
         return
       }
       let encoded = encode_user(user, pass);
-      let success = login_user(encoded);
+      let success = login_user("Basic " + encoded);
       loggedIn.set(success);
     }
 </script>
