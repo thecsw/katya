@@ -20,8 +20,7 @@ function encode(user, pass) {
 }
 
 function check() {
-        const existingCookie = getCookie("user");
-        return login(existingCookie);
+        return login(getCookie("user"));
 }
 
 function login(auth_token) {

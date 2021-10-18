@@ -1,5 +1,5 @@
 <script>
-    import {loggedIn} from './stores.js';
+    import {loggedIn, credentials} from './stores.js';
     import {login_user, encode_user} from './auth.js';
     
     let user = '';
@@ -11,8 +11,10 @@
       }
       let encoded = encode_user(user, pass);
       login_user("Basic " + encoded).then((val) => {
-        console.log(val);
         loggedIn.set(val);
+        if (val === true) {
+          credentials.set({user:user,pass:pass});
+        }
       });
     }
 </script>

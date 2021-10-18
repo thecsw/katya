@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
 
-    import { loggedIn } from './stores.js';
+    import { loggedIn, pageLoaded } from './stores.js';
     import { check_cookie, logout_user } from './auth.js';
     
     import Search from './Search.svelte';
@@ -12,20 +12,30 @@
       userLoggedIn = value;
     })
 
+    let thisPageLoaded;
+    pageLoaded.subscribe(value => {
+      thisPageLoaded = value;
+    })
+
     function logout () {
       logout_user();
       loggedIn.set(false);
     }
     
     onMount(() => {
-      check_cookie().then((val) => {loggedIn.set(val)})
+      check_cookie()
+        .then(value => {loggedIn.set(value)})
+        .then(() => {pageLoaded.set(true)})
     });
     
 </script>
 
-{#if userLoggedIn}
-  <Search/>
-  <button on:click={logout}>Logout</button>
-{:else}
-  <Login/>
+
+{#if thisPageLoaded}
+  {#if userLoggedIn}
+    <button on:click={logout}>Logout</button>
+    <Search/>
+  {:else}
+    <Login/>
+  {/if}
 {/if}
