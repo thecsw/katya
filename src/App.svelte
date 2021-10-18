@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
 
     import { loggedIn, pageLoaded, credentials } from './stores.js';
     import { check_cookie, logout_user } from './auth.js';
@@ -30,12 +31,13 @@
     
 </script>
 
-
 {#if thisPageLoaded}
-  {#if userLoggedIn}
-    <button on:click={logout}>Logout</button>
-    <Search/>
-  {:else}
-    <Login/>
-  {/if}
+  <main transition:fade>
+      {#if userLoggedIn}
+        <button on:click={logout}>Logout</button>
+        <Search/>
+      {:else}
+        <Login/>
+      {/if}
+  </main>
 {/if}
