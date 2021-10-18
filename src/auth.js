@@ -25,15 +25,16 @@ function check() {
 }
 
 function login(auth_token) {
+        let success = false;
         if (auth_token !== "" && typeof auth_token !== "undefined") {
                 katya_post(url + "/auth", {}, auth_token).then((data) => {
                         if (data[0] === 200) {
                                 setCookie(auth_token);
-                                return true;
+                                success = true;
                         }
                 });
         }
-        return false;
+        return success;
 }
 
 function logout() {
