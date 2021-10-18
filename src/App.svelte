@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
 
     import { loggedIn } from './stores.js';
-    import { check_cookie } from './auth.js';
+    import { check_cookie, logout_user } from './auth.js';
     
     import Search from './Search.svelte';
     import Login from './Login.svelte';
@@ -11,15 +11,21 @@
     loggedIn.subscribe(value => {
       userLoggedIn = value;
     })
+
+    function logout () {
+      logout_user();
+      loggedIn.set(false);
+    }
     
     onMount(() => {
-      loggedIn.set(check_cookie());
+      check_cookie().then((val) => {loggedIn.set(val)})
     });
     
 </script>
 
 {#if userLoggedIn}
   <Search/>
+  <button on:click={logout}>Logout</button>
 {:else}
   <Login/>
 {/if}
