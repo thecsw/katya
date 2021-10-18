@@ -1,7 +1,7 @@
+.log
+.saves
+
 /node_modules/
 /public/build/
 
 .DS_Store
-
-.log
-.saves
