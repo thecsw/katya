@@ -1,5 +1,5 @@
 <script>
-    import {loggedIn, credentials} from './stores.js';
+    import {loggedIn} from './stores.js';
     import {login_user, encode_user} from './auth.js';
     
     let user = '';

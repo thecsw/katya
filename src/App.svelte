@@ -1,7 +1,7 @@
 <script>
     import { onMount } from 'svelte';
 
-    import { loggedIn, pageLoaded } from './stores.js';
+    import { loggedIn, pageLoaded, credentials } from './stores.js';
     import { check_cookie, logout_user } from './auth.js';
     
     import Search from './Search.svelte';

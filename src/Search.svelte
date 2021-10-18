@@ -1,12 +1,18 @@
 <script>
     import Result from './Result.svelte'
+
+    import {credentials} from './stores.js';
     
     let search_value = '';
     let search_type = 0;
-    let username = 'sandy';
     let search_placeholder = ['literals', 'tags', 'nominatives', 'shapes'];
     let search_api_options = ['text', 'tags', 'nomins', 'shapes']
 
+    let user;
+    credentials.subscribe(value => {
+      user = value;
+    })
+    
     function submitSearch() {
       part_type = search_api_options[search_type];
     }
@@ -69,7 +75,7 @@
 <main>
 
     <div>
-        <h1>Time to search, {username || 'stranger'}!</h1>
+        <h1>Time to search, {user.user || 'stranger'}!</h1>
     </div>
 
     <div class="search">
