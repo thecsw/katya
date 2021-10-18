@@ -11,6 +11,7 @@
       }
       let encoded = encode_user(user, pass);
       let success = login_user("Basic " + encoded);
+      console.log(success);
       loggedIn.set(success);
     }
 </script>
