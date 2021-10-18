@@ -35,8 +35,9 @@ function login(auth_token) {
                                         }
                                 }
                         );
+                } else {
+                        resolve(false);
                 }
-                resolve(false);
         });
 }
 
