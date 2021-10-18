@@ -10,9 +10,10 @@
         return
       }
       let encoded = encode_user(user, pass);
-      let success = login_user("Basic " + encoded);
-      console.log(success);
-      loggedIn.set(success);
+      login_user("Basic " + encoded).then((val) => {
+        console.log(val);
+        loggedIn.set(val);
+      });
     }
 </script>
 

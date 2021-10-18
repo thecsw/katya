@@ -25,19 +25,19 @@ function check() {
 }
 
 function login(auth_token) {
-        let success = false;
-        if (auth_token !== "" && typeof auth_token !== "undefined") {
-                katya_post(url + "/auth", {}, auth_token).then((data) => {
-                        if (data[0] === 200) {
-                                setCookie(auth_token);
-                                success = true;
-                                console.log("inside");
-                                console.log(success);
-                        }
-                });
-        }
-        console.log("outside");
-        return success;
+        return new Promise((resolve) => {
+                if (auth_token !== "" && typeof auth_token !== "undefined") {
+                        katya_post(url + "/auth", {}, auth_token).then(
+                                (data) => {
+                                        if (data[0] === 200) {
+                                                setCookie(auth_token);
+                                                resolve(true);
+                                        }
+                                }
+                        );
+                }
+                resolve(false);
+        });
 }
 
 function logout() {
