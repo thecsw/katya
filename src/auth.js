@@ -12,7 +12,7 @@ function getCookie(what) {
 }
 
 function setCookie(what) {
-        document.cookie = `user=${what};max-age=172800;path=/;`;
+        document.cookie = `user=${what};max-age=172800;path=/;SameSite=None;Secure`;
 }
 
 function encode(user, pass) {
