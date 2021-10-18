@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
 
-    import { loggedIn, pageLoaded, credentials } from './stores.js';
+    import { loggedIn, pageLoaded } from './stores.js';
     import { check_cookie, logout_user } from './auth.js';
     
     import Search from './Search.svelte';
@@ -25,8 +25,8 @@
     
     onMount(() => {
       check_cookie()
-        .then(value => {loggedIn.set(value)})
-        .then(() => {pageLoaded.set(true)})
+        .then(value => { loggedIn.set(value) })
+        .then(() => { pageLoaded.set(true) })
     });
     
 </script>

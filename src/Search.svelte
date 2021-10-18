@@ -1,7 +1,8 @@
 <script>
-    import Result from './Result.svelte'
-
     import {credentials} from './stores.js';
+    import {findKatya} from './search.js';
+    
+    import Result from './Result.svelte'
     
     let search_value = '';
     let search_type = 0;
@@ -12,15 +13,7 @@
     credentials.subscribe(value => {
       user = value;
     })
-    
-    function submitSearch() {
-      part_type = search_api_options[search_type];
-    }
 
-    function addSource() {
-      
-    }
-    
     let results = [
     {
         "left": ", ибо без этого нельзя обвинять . \" А может быть , падучая была настоящая . Больной вдруг очнулся , услыхал крик , вышел \" — ну и что же ? Посмотрел да и сказал себе :",
@@ -68,6 +61,14 @@
         "title": "Ф. М. Достоевский. Братья Карамазовы. Текст произведения. Часть первая. Книга первая. V. Старцы"
     }
 ]
+
+    
+    function submitSearch() {
+      part_type = search_api_options[search_type];
+      findKatya(search_value, part_type).then(value => {
+        results = value;
+      })
+    }
 
     
 </script>

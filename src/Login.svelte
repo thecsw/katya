@@ -1,21 +1,12 @@
 <script>
-    import {loggedIn, credentials} from './stores.js';
-    import {login_user, encode_user} from './auth.js';
-    
-    let user = '';
-    let pass = '';
+    import { loggedIn } from './stores.js';
+    import { login_user, make_token } from './auth.js';
+
+    let user = { user: "", pass: "" };
     
     function login() {
-      if (user.length == 0 || pass.length == 0) {
-        return
-      }
-      let encoded = encode_user(user, pass);
-      login_user("Basic " + encoded).then((val) => {
-        loggedIn.set(val);
-        if (val === true) {
-          credentials.set({user:user,pass:pass});
-        }
-      });
+      if (user.user.length == 0 || user.pass.length == 0) { return }
+      login_user(make_token(user)).then(val => { loggedIn.set(val) });
     }
 </script>
 
@@ -24,10 +15,10 @@
 </div>
 
 <main>
-    <input bind:value={user}
+    <input bind:value={user.user}
            placeholder="username">
 
-    <input bind:value={pass}
+    <input bind:value={user.pass}
            on:keydown="{event => event.key === 'Enter' && login()}"
            type="password"
            placeholder="password">

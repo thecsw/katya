@@ -1,7 +1,6 @@
-import { katya_get, katya_post } from "./http.js";
-
-const url = "https://katya.sandyuraz.com:32000/api";
-// const url = 'http://127.0.0.1:32000/api'
+import { url } from "./const.js";
+import { katya_post } from "./http.js";
+import { credentials } from "./stores.js";
 
 function getCookie(what) {
         const value = `; ${document.cookie}`;
@@ -19,6 +18,15 @@ function encode(user, pass) {
         return btoa(user + ":" + pass);
 }
 
+function makeToken(user) {
+        return "Basic " + encode(user.user, user.pass);
+}
+
+function breakToken(token) {
+        let val = atob(token.split("Basic ")[1]).split(":");
+        return { user: val[0], pass: val[1] };
+}
+
 function check() {
         return login(getCookie("user"));
 }
@@ -30,6 +38,9 @@ function login(auth_token) {
                                 (data) => {
                                         if (data[0] === 200) {
                                                 setCookie(auth_token);
+                                                credentials.set(
+                                                        breakToken(auth_token)
+                                                );
                                                 resolve(true);
                                         }
                                 }
@@ -45,6 +56,7 @@ function logout() {
 }
 
 export const encode_user = encode;
+export const make_token = makeToken;
 export const check_cookie = check;
 export const login_user = login;
 export const logout_user = logout;

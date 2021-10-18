@@ -4,4 +4,6 @@ export const pageLoaded = writable(false);
 
 export const loggedIn = writable(false);
 
-export const credentials = writable({ user: null, pass: null });
+export const credentials = writable({ user: "", pass: "" });
+
+export const results = writable([]);
