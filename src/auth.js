@@ -31,9 +31,12 @@ function login(auth_token) {
                         if (data[0] === 200) {
                                 setCookie(auth_token);
                                 success = true;
+                                console.log("inside");
+                                console.log(success);
                         }
                 });
         }
+        console.log("outside");
         return success;
 }
 
