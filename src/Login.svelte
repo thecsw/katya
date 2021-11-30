@@ -6,13 +6,14 @@
     
     function login() {
       if (user.user.length == 0 || user.pass.length == 0) { return }
-      login_user(make_token(user)).then(val => { loggedIn.set(val) });
+      login_user(make_token(user)).then(val => { loggedIn.set(val); });
     }
 </script>
 
-<div>
-    <h1>Login</h1>
-</div>
+<p class="aligncenter">
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <img src="/logo.png" width=30%>
+</p>    
 
 <main>
     <input bind:value={user.user}
@@ -42,4 +43,12 @@
       width: 320px;
       max-width: 100%;
     }
+
+    img {
+      text-align: center;
+      max-width: 100%;
+      border-radius: 10px;
+      padding: 10em 0 3em 1em;
+    }
+
 </style>

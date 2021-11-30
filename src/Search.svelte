@@ -6,8 +6,8 @@
     
     let search_value = '';
     let search_type = 0;
-    let search_placeholder = ['literals', 'tags', 'nominatives', 'shapes'];
-    let search_api_options = ['text', 'tags', 'nomins', 'shapes']
+    let search_placeholder = ['literals', 'tags', 'lemmas', 'shapes'];
+    let search_api_options = ['text', 'tags', 'lemmas', 'shapes']
 
     let user;
     credentials.subscribe(value => {
@@ -47,7 +47,7 @@
         </label>
         <label>
             <input type=radio bind:group={search_type} value={2}>
-            Nominatives
+            Lemmas
         </label>
         <label>
             <input type=radio bind:group={search_type} value={3}>
@@ -64,12 +64,10 @@
     
 </main>
 
-
-
 <style>
     h1 {
       text-align: center;
-      color: #ff3e00;
+      color: #7F5727;
       font-size: 3em;
       font-weight: 200;
     }
@@ -83,7 +81,7 @@
     .search {
       margin-left: auto;
       margin-right: auto;
-      width: 320px;
+      width: 420px;
       max-width: 100%;
     }
 
