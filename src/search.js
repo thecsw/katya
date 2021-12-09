@@ -8,6 +8,21 @@ credentials.subscribe((value) => {
         user = value;
 });
 
+function doHitSearch(source) {
+        return new Promise((resolve) => {
+                katya_get(
+                        url + "/frequencies?source=" + source,
+                        make_token(user)
+                ).then((data) => {
+                        if (data[0] === 200) {
+                                resolve(data[1]);
+                        } else {
+                                resolve([]);
+                        }
+                });
+        });
+}
+
 function doSearch(query, part) {
         return new Promise((resolve) => {
                 katya_get(
@@ -24,3 +39,4 @@ function doSearch(query, part) {
 }
 
 export const findKatya = doSearch;
+export const findKatyaHits = doHitSearch;

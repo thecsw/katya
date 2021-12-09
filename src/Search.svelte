@@ -14,7 +14,15 @@
       user = value;
     })
 
-    let results = [];
+    let results = [{
+      "left": "Nothing here yet!",
+      "left_reverse": "",
+      "center": "",
+      "center_reverse": "",
+      "right": "",
+      "source": "",
+      "title": ""
+    }];
     
     function submitSearch() {
       let part_type = search_api_options[search_type];

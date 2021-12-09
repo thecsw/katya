@@ -4,7 +4,8 @@
 
     import { loggedIn, pageLoaded, currentPage } from './stores.js';
     import { check_cookie, logout_user } from './auth.js';
-    
+
+    import Sources from './Sources.svelte';
     import Search from './Search.svelte';
     import Login from './Login.svelte';
     import Hits from './Hits.svelte';
@@ -52,7 +53,10 @@
         {/if}
         {#if thisCurrentPage == "hits"}
           <Hits/>
-        {/if}        
+        {/if}
+        {#if thisCurrentPage == "sources"}
+          <Sources/>
+        {/if}
       {:else}
           <Login/>
       {/if}

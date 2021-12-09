@@ -12,8 +12,8 @@
 
 <p class="aligncenter">
     <!-- svelte-ignore a11y-missing-attribute -->
-    <img src="/logo.png" width=30%>
-</p>    
+    <img src="/logo.png" width=20%>
+</p>
 
 <main>
     <input bind:value={user.user}
@@ -30,11 +30,11 @@
 </main>
 
 <style>
-    h1 {
-      text-align: center;
-      font-size: 3em;
-      font-weight: 200;
-    }
+    /* h1 { */
+    /*   text-align: center; */
+    /*   font-size: 3em; */
+    /*   font-weight: 200; */
+    /* } */
 
     main {
       text-align: center;
