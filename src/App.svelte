@@ -2,6 +2,8 @@
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
 
+    // import { NotificationDisplay, notifier } from '@beyonk/svelte-notifications'
+    
     import { loggedIn, pageLoaded, currentPage } from './stores.js';
     import { check_cookie, logout_user } from './auth.js';
 
@@ -36,10 +38,14 @@
     onMount(() => {
       check_cookie()
         .then(value => { loggedIn.set(value) })
-        .then(() => { pageLoaded.set(true) })
+        .then(() => {
+          pageLoaded.set(true);
+        })
     });
     
 </script>
+
+<!-- <NotificationDisplay /> -->
 
 {#if thisPageLoaded}
   <main transition:fade>

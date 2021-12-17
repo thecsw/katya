@@ -1,6 +1,7 @@
 <script>
     import {credentials} from './stores.js';
     import {findKatya} from './search.js';
+    import { downloadCSV } from './util.js';
     
     import Result from './Result.svelte'
     
@@ -30,6 +31,13 @@
         .then(value => { results = JSON.parse(value) })
     }
 
+    function submitSearchCSV() {
+      let part_type = search_api_options[search_type];
+      findKatya(search_value, part_type, "1")
+        .then(value => { downloadCSV(search_value, value) })
+    }
+
+    
     
 </script>
 
@@ -44,6 +52,7 @@
                on:keydown="{event => event.key === 'Enter' && submitSearch()}"
                placeholder={search_placeholder[search_type]}>
         <button on:click={submitSearch}>Search</button>
+        <button on:click={submitSearchCSV}>CSV</button>
         
         <label>
             <input type=radio bind:group={search_type} value={0}>

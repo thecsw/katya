@@ -8,10 +8,10 @@ credentials.subscribe((value) => {
         user = value;
 });
 
-function doHitSearch(source) {
+function doHitSearch(source, csv = "0") {
         return new Promise((resolve) => {
                 katya_get(
-                        url + "/frequencies?source=" + source,
+                        url + "/frequencies?source=" + source + "&csv=" + csv,
                         make_token(user)
                 ).then((data) => {
                         if (data[0] === 200) {
@@ -23,10 +23,16 @@ function doHitSearch(source) {
         });
 }
 
-function doSearch(query, part) {
+function doSearch(query, part, csv = "0") {
         return new Promise((resolve) => {
                 katya_get(
-                        url + "/find?query=" + query + "&part=" + part,
+                        url +
+                                "/find?query=" +
+                                query +
+                                "&part=" +
+                                part +
+                                "&csv=" +
+                                csv,
                         make_token(user)
                 ).then((data) => {
                         if (data[0] === 200) {

@@ -1,4 +1,6 @@
 <script>
+    //import { NotificationDisplay, notifier } from '@beyonk/svelte-notifications'
+    
     import { loggedIn } from './stores.js';
     import { login_user, make_token } from './auth.js';
 
@@ -6,9 +8,14 @@
     
     function login() {
       if (user.user.length == 0 || user.pass.length == 0) { return }
-      login_user(make_token(user)).then(val => { loggedIn.set(val); });
+      login_user(make_token(user)).
+        then(val => {
+          loggedIn.set(val);
+        });
     }
 </script>
+
+<!-- <NotificationDisplay /> -->
 
 <p class="aligncenter">
     <!-- svelte-ignore a11y-missing-attribute -->

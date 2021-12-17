@@ -19,6 +19,28 @@ async function makePost(path = "", data = {}, auth = "") {
         return [response.status, json];
 }
 
+async function makeDelete(path = "", data = {}, auth = "") {
+        const response = await fetch(path, {
+                method: "DELETE",
+                mode: "cors",
+                cache: "no-cache",
+                credentials: "include",
+                headers: {
+                        "Content-Type": "application/json",
+                        Authorization: auth.toString(),
+                        Accept: "*/*",
+                        "Accept-Encoding": "gzip, deflate, br",
+                        Connection: "keep-alive",
+                },
+                redirect: "follow",
+                referrerPolicy: "no-referrer",
+                body: JSON.stringify(data),
+        });
+        let json = await response.json();
+        return [response.status, json];
+}
+
+
 async function makeGet(path = "", auth = "") {
         const response = await fetch(path, {
                 method: "GET",
@@ -41,3 +63,4 @@ async function makeGet(path = "", auth = "") {
 
 export const katya_get = makeGet;
 export const katya_post = makePost;
+export const katya_delete = makeDelete;
