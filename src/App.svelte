@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
 
-    // import { NotificationDisplay, notifier } from '@beyonk/svelte-notifications'
+    import { NotificationDisplay, notifier } from '@beyonk/svelte-notifications'
     
     import { loggedIn, pageLoaded, currentPage } from './stores.js';
     import { check_cookie, logout_user } from './auth.js';
@@ -37,15 +37,18 @@
     
     onMount(() => {
       check_cookie()
-        .then(value => { loggedIn.set(value) })
-        .then(() => {
+        .then(value => {
+          loggedIn.set(value)
+          if (!value) notifier.warning("Please login")
+        })
+        .then(_ => {
           pageLoaded.set(true);
         })
     });
     
 </script>
 
-<!-- <NotificationDisplay /> -->
+<NotificationDisplay />
 
 {#if thisPageLoaded}
   <main transition:fade>

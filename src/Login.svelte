@@ -13,6 +13,8 @@
           loggedIn.set(val);
         });
     }
+
+    
 </script>
 
 <!-- <NotificationDisplay /> -->

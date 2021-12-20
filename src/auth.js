@@ -5,13 +5,7 @@ import { credentials } from "./stores.js";
 function getCookie(what) {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${what}=`);
-        if (parts.length === 2) {
-                return parts.pop().split(";").shift();
-        }
-}
-
-function setCookie(what) {
-        document.cookie = `user=${what};max-age=172800;path=/;SameSite=None;Secure`;
+        if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
 function encode(user, pass) {
@@ -37,7 +31,6 @@ function login(auth_token) {
                         katya_post(url + "/auth", {}, auth_token).then(
                                 (data) => {
                                         if (data[0] === 200) {
-                                                // setCookie(auth_token);
                                                 credentials.set(
                                                         breakToken(auth_token)
                                                 );
@@ -53,7 +46,6 @@ function login(auth_token) {
 }
 
 function logout() {
-        //setCookie('')
         document.cookie = "user=";
 }
 
@@ -62,5 +54,4 @@ export const make_token = makeToken;
 export const check_cookie = check;
 export const login_user = login;
 export const logout_user = logout;
-export const set_cookie = setCookie;
 export const get_cookie = getCookie;
