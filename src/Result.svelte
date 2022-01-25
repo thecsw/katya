@@ -7,6 +7,7 @@
     <h4><a target="_blank" href={result.source}>{result.title}</a></h4>
     {result.left} <mark>{result.center}</mark> {result.right}
     <p></p>
+    <pre>Retrieved {result.scraped}</pre>
 </article>
 
 <style>
